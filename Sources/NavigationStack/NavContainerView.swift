@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct NavigationContainerView<Content: View>: View {
+public struct NavigationContainerView<Content: View>: View {
 
     @ObservedObject var viewModel: NavigationContainerViewModel = .init()
     private var content: Content
@@ -18,7 +18,7 @@ struct NavigationContainerView<Content: View>: View {
             self.transition = (.identity, .identity)
         }
     }
-    var body: some View {
+    public var body: some View {
         let isRoot = viewModel.currentScreen == nil
         return ZStack {
             if isRoot {
