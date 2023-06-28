@@ -9,7 +9,7 @@ public struct NavigationContainerView<Content: View>: View {
     private let animation: Animation = .easeIn(duration: 0.5)
     private let transition: (push: AnyTransition, pop: AnyTransition)
     
-    init(transition: Transition, @ViewBuilder content: @escaping () -> Content) {
+    public init(transition: Transition, @ViewBuilder content: @escaping () -> Content) {
         self.content = content()
         switch transition {
         case .custom(let anyTransition):
