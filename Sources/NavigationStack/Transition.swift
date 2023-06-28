@@ -1,12 +1,12 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-public enum Transition {
+enum Transition {
     case none
     case custom(AnyTransition)
 }
 
-public enum NavigationType {
+ enum NavigationType {
     case push
     case pop
     case popToRoot

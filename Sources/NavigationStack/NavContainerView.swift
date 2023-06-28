@@ -1,9 +1,9 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct NavContainerView<Content: View>: View {
+struct NavigationContainerView<Content: View>: View {
 
-    @ObservedObject var viewModel: NavContainerViewModel = .init()
+    @ObservedObject var viewModel: NavigationContainerViewModel = .init()
     private var content: Content
     
     private let animation: Animation = .easeIn(duration: 0.5)

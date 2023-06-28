@@ -1,29 +1,29 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-final class NavContainerViewModel: ObservableObject {
+public final class NavigationContainerViewModel: ObservableObject {
     
     @Published var currentScreen: Screen?
     
     var navigationType: NavigationType = .push
     
-    var screenStack = NavStack() {
+    var screenStack = NavigationStack() {
         didSet { self.currentScreen = screenStack.top() }
     }
     
-    func push(screenView: AnyView) {
+    public func push(screenView: AnyView) {
         navigationType = .push
         let screen = Screen(view: screenView)
         screenStack.push(screen)
     }
     
-    func pop() {
+    public func pop() {
         navigationType = .pop
         screenStack.pop()
     }
     
     
-    func popToRoot() {
+    public func popToRoot() {
         navigationType = .popToRoot
         screenStack.popToRoot()
     }
