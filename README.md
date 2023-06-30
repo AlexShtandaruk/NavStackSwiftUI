@@ -34,7 +34,7 @@ struct ExampleScreen: View {
     @EnvironmentObject var routerModel: NavigationContainerViewModel
 
     var body: some View {
-        categoryCell(category: category)
+        Text("Back")
             .onTapGesture {
                   routerModel.push(screenView: CategoryDetailScreen(data: category).toAnyView())
             }
