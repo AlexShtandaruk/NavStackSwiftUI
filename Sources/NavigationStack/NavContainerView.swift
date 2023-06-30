@@ -6,7 +6,6 @@ public struct NavigationContainerView<Content: View>: View {
     @ObservedObject var viewModel: NavigationContainerViewModel = .init()
     private var content: Content
     
-    private let animation: Animation = .easeIn(duration: 0.5)
     private let transition: (push: AnyTransition, pop: AnyTransition)
     
     public init(transition: Transition, @ViewBuilder content: @escaping () -> Content) {
@@ -23,11 +22,9 @@ public struct NavigationContainerView<Content: View>: View {
         return ZStack {
             if isRoot {
                 self.content.environmentObject(self.viewModel)
-                    .animation(animation)
                     .transition(viewModel.navigationType == .push ? transition.push : transition.pop)
             } else {
                 viewModel.currentScreen?.view.environmentObject(self.viewModel)
-                    .animation(animation)
                     .transition(viewModel.navigationType == .push ? transition.push : transition.pop)
             }
         }
