@@ -3,13 +3,14 @@ import SwiftUI
 @available(iOS 13.0, *)
 public struct NavigationContainerView<Content: View>: View {
 
-    @ObservedObject var viewModel: NavigationContainerViewModel = .init()
+    @ObservedObject var viewModel: NavigationContainerViewModel
     private var content: Content
     
     private let transition: (push: AnyTransition, pop: AnyTransition)
     
-    public init(transition: Transition, @ViewBuilder content: @escaping () -> Content) {
+    public init(transition: Transition, @ViewBuilder content: @escaping () -> Content, viewModel: NavigationContainerViewModel) {
         self.content = content()
+        self.viewModel = viewModel
         switch transition {
         case .custom(let anyTransition):
             self.transition = (anyTransition, anyTransition)
