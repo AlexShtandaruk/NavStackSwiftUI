@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct Screen: Identifiable, Equatable {
+public struct Screen: Identifiable, Equatable {
     
     let id = UUID().uuidString
     let view: AnyView
