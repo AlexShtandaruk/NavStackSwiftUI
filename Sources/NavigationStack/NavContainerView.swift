@@ -8,7 +8,7 @@ public struct NavigationContainerView<Content: View>: View {
     
     private let transition: (push: AnyTransition, pop: AnyTransition)
     
-    public init(transition: Transition, @ViewBuilder content: @escaping () -> Content, viewModel: NavigationContainerViewModel) {
+    public init(transition: Transition, viewModel: NavigationContainerViewModel, @ViewBuilder content: @escaping () -> Content) {
         self.content = content()
         self.viewModel = viewModel
         switch transition {
